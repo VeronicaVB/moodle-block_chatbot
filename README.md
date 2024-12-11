@@ -1,8 +1,11 @@
 # CGSchatbot #
 
-TODO Describe the plugin shortly here.
+This plugin is a chatbot that uses LLPhant and Ollama.
 
-TODO Provide more detailed description here.
+To use Ollama for testing purposes,  use the Docker image
+[text](https://hub.docker.com/r/ollama/ollama)
+
+Download LLPhant via composer.
 
 ## Installing via uploaded ZIP file ##
 
@@ -29,7 +32,7 @@ to complete the installation from the command line.
 
 ## License ##
 
-2024 Veronica Bermegui 
+2024 Veronica Bermegui
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
