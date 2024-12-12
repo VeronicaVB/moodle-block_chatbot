@@ -27,8 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['mycustomstring'] = 'You can add \'extra\' strings via the recipe file.';
 $string['mycustomstring2'] = 'Another string with {$a->some} placeholder.';
-$string['pluginname'] = 'CGSchatbot';
-$string['pluginname:title'] = 'Chat CGS';
-$string['pluginname:addinstance'] = 'Add a new CGSchatbot block';
-$string['pluginname:myaddinstance'] = 'Add a new CGSchatbot block to the My dashboard';
+$string['pluginname'] = 'Chatbot';
+$string['pluginname:title'] = 'ChatBot';
+$string['pluginname:addinstance'] = 'Add a new Chatbot block';
+$string['pluginname:myaddinstance'] = 'Add a new Chatbot block to the My dashboard';
 

@@ -31,11 +31,11 @@ define(['core/ajax'],
          * Initializes the block controls.
          */
         function init() {
-            console.log("INIT");
 
             function askQuestion(e) {
                 e.preventDefault();
-                console.log("ASK QUESTIOn");
+
+                // Disable the button and textarea while getting answer
                 const question = document.getElementById('message-input').value;
                 // Clear
                 document.getElementById('message-input').value = '';
@@ -43,13 +43,24 @@ define(['core/ajax'],
                 // Put the  question on the message containers.
                 displayQuestionInContainer(question)
 
-                console.log(question);
                 displaytypinganimation();
 
+                disableQuestionSection();
+
                 getResponse(question)
-                // removeTypingIndicator();
 
 
+
+
+            }
+
+            function disableQuestionSection() {
+                document.getElementById('message-input').disabled = true
+                document.querySelector('.cgschatbot-ask').disabled = true
+            }
+            function enableQuestionSection() {
+                document.getElementById('message-input').disabled = false
+                document.querySelector('.cgschatbot-ask').disabled = false
             }
 
             function displayQuestionInContainer(question) {
@@ -121,7 +132,6 @@ define(['core/ajax'],
 
                     // Set the 'top' property dynamically
                     typingAnimation.style.top = `${containerHeight - typingHeight}px`;
-                    console.log(`${containerHeight - typingHeight}px`)
                 }
             }
 
@@ -157,7 +167,7 @@ define(['core/ajax'],
 
             function getResponse(question) {
                 // Ajax call
-
+                disableQuestionSection();
                 Ajax.call([
                     {
                         methodname: 'block_cgschatbot_get_answer',
@@ -165,9 +175,9 @@ define(['core/ajax'],
                             question: question,
                         },
                         done: function (response) {
-                            console.log(response);
                             removeTypingIndicator();
                             displayAnswer(response.answer);
+                            enableQuestionSection();
 
                         },
                         fail: function (reason) {
@@ -179,6 +189,7 @@ define(['core/ajax'],
 
             function addEventListener() {
                 document.querySelector('.cgschatbot-ask').addEventListener('click', askQuestion);
+                document.querySelector('.cgschatbot-ask').addEventListener('keypress', askQuestion);
             }
 
 
